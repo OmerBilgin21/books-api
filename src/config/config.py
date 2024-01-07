@@ -25,8 +25,8 @@ def get_envs() -> dict[str, str]:
         "secret_key": os.environ["SECRET_KEY"],
         "user_secret": os.environ["USER_SECRET"],
         "pass_secret": os.environ["PASS_SECRET"],
-        "rapid_api_key": os.environ["RAPID_API_KEY"],
-        "rapid_api_host": os.environ["RAPID_API_HOST"],
+        "rapid_api_key": os.environ["BOOKS_API_KEY"],
+        "rapid_api_host": os.environ["BOOKS_API_HOST"],
     }
 
 
