@@ -27,6 +27,8 @@ def get_envs() -> dict[str, str]:
         "pass_secret": os.environ["PASS_SECRET"],
         "rapid_api_key": os.environ["BOOKS_API_KEY"],
         "rapid_api_host": os.environ["BOOKS_API_HOST"],
+        "book_finder_key": os.environ["BOOK_FINDER_KEY"],
+        "book_finder_host": os.environ["BOOK_FINDER_HOST"],
     }
 
 
@@ -35,4 +37,17 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-BASE_EXT_API_URL = "https://books-api7.p.rapidapi.com/books/"
+BOOKS_API_EXTERNAL_BASE = "https://books-api7.p.rapidapi.com/books/"
+BOOK_FINDER_EXTERNAL = "https://book-finder1.p.rapidapi.com/api/search"
+
+POSSIBLE_SEARCH_CATEGORIES = [
+    "Animals, Bugs & Pets",
+    "Art, Creativity & Music",
+    "General Literature",
+    "Hobbies, Sports & Outdoors",
+    "Science Fiction & Fantasy",
+    "Real Life",
+    "Science & Technology",
+    "Mystery & Suspense",
+    "Reference",
+]
