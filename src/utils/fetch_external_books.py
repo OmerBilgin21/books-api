@@ -2,7 +2,7 @@ from typing import Any
 
 import requests
 
-from src.config import BASE_EXT_API_URL, get_envs
+from src.config import BOOKS_API_EXTERNAL_BASE, get_envs
 
 
 def fetch_external_books(
@@ -16,7 +16,7 @@ def fetch_external_books(
     Returns:
         Any: _description_
     """
-    url = BASE_EXT_API_URL + extra_url
+    url = BOOKS_API_EXTERNAL_BASE + extra_url
     envs = get_envs()
     rapid_api_key = envs["rapid_api_key"]
     rapid_api_host = envs["rapid_api_host"]

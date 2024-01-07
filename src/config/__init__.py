@@ -1,6 +1,8 @@
 from .config import (
     ACCESS_TOKEN_EXPIRE_MINUTES,
-    BASE_EXT_API_URL,
+    BOOK_FINDER_EXTERNAL,
+    BOOKS_API_EXTERNAL_BASE,
+    POSSIBLE_SEARCH_CATEGORIES,
     get_envs,
     oauth2_scheme,
     pwd_context,
@@ -8,7 +10,9 @@ from .config import (
 
 __all__ = [
     "ACCESS_TOKEN_EXPIRE_MINUTES",
-    "BASE_EXT_API_URL",
+    "BOOK_FINDER_EXTERNAL",
+    "BOOKS_API_EXTERNAL_BASE",
+    "POSSIBLE_SEARCH_CATEGORIES",
     "get_envs",
     "oauth2_scheme",
     "pwd_context",
