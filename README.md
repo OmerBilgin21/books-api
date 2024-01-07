@@ -21,9 +21,9 @@ python3 main.py
 
 Note: python 3.10 is recommended (author's version) but shouldn't be essential. Therefore `python3.10 -m venv venv` could be replaced with `python3 -m venv venv`.
 
-At this point the project _should_ be running.
-Hot reloading is because we exported ENV as DEV so your changes should take place in real time.
-To check out the endpoints and try them: Go to http://localhost:8080/docs.
+At this point the project _should_ be running.  
+Hot reloading is because we exported ENV as DEV so your changes should take place in real time.  
+To check out the endpoints and try them: Go to http://localhost:8080/docs.  
 To learn more about docs and FastAPI check out their website https://fastapi.tiangolo.com/learn/
 
 Note: To use most of the endpoints you need to have an authenticated user. One should be creatable with `/signup` endpoint.
