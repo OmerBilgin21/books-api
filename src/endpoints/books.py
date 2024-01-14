@@ -1,38 +1,38 @@
 from fastapi import APIRouter
 
 from src.config import POSSIBLE_SEARCH_CATEGORIES
-from src.schemas import SearchQueryString
+from src.schemas import Book, SearchQueryString
 from src.utils import fetch_external_books, find_external_books
 
 router = APIRouter()
 
 
-@router.get("")
-async def get_books() -> dict:
+@router.get("", response_model=list[Book] | None)
+async def get_books() -> list[Book] | None:
     """
     Retrieves a list of books.
 
     Returns
         dict: A dictionary containing the book data.
     """
-    return {"data": fetch_external_books(extra_url="find/genres")}
+    return fetch_external_books(extra_url="find/genres")
 
 
-@router.get("/categories-to-search")
-async def get_possible_categories() -> dict[str, list[str]]:
+@router.get("/categories-to-search", response_model=list[str])
+async def get_possible_categories() -> list[str]:
     """
     Retrieves a list of categories that users can search books from.
 
     Returns
         dict: A dictionary containing the book data.
     """
-    return {"data": POSSIBLE_SEARCH_CATEGORIES}
+    return POSSIBLE_SEARCH_CATEGORIES
 
 
-@router.post("/search")
+@router.post("/search", response_model=list[Book] | None)
 async def search_books(
     search_params: SearchQueryString,
-) -> dict[str, list | None]:
+) -> list[Book] | None:
     """_summary_
 
     Args:
@@ -41,4 +41,15 @@ async def search_books(
     Returns:
         dict: Found book/books if any.
     """
-    return {"data": find_external_books(search_params)}
+    return find_external_books(search_params)
+
+
+@router.get("/random", response_model=list[Book] | None)
+async def get_random_books() -> list[Book] | None:
+    """
+    Retrieves a random book.
+
+    Returns
+        dict: A dictionary containing the book data.
+    """
+    return fetch_external_books()
