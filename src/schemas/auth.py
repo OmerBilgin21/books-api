@@ -1,7 +1,9 @@
 from pydantic import BaseModel
 
+from .out import Out
 
-class User(BaseModel):
+
+class User(Out):
     username: str
     email: str
 
