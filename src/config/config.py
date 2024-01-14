@@ -32,7 +32,7 @@ def get_envs() -> dict[str, str]:
     }
 
 
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ACCESS_TOKEN_EXPIRE_MINUTES = 1 * 60 * 24  # 1 day
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -50,4 +50,15 @@ POSSIBLE_SEARCH_CATEGORIES = [
     "Science & Technology",
     "Mystery & Suspense",
     "Reference",
+]
+
+POSSIBLE_GENRES = [
+    "Classics",
+    "Historical",
+    "Literature",
+    "Historical fiction",
+    "Fiction",
+    "Fantasy",
+    "19th Century",
+    "Christmas",
 ]
