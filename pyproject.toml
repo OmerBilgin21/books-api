@@ -16,6 +16,7 @@ select = ["ALL"]
 ignore = [
     "ANN401",
     "T201",
+    "TD003",
     "B008",
     "UP032",
     "D100",
@@ -29,8 +30,10 @@ ignore = [
     "D212",
     "D203",
     "D213",
-    "PLR0913", # Function too many arguments (max 5) - impossible to enforece with API dependencies
     "D101",    # Missing docstring in public package - all schema files
+    "E731",
+    "FIX002",
+    "PLR0913", # Function too many arguments (max 5) - impossible to enforece with API dependencies
     "N815",    # Variable in function should be lowercase - all schema files
     "S104",    # We have to run on 0.0.0.0 for kubernetes
 ]
