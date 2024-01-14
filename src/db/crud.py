@@ -57,3 +57,17 @@ async def create_one(collection_name: str, document: dict) -> dict:
     """
     collection = await get_collection(collection_name)
     return await collection.insert_one(document)
+
+
+async def get_one(collection_name: str, document_id: str) -> dict:
+    """Get a document from a collection by id.
+
+    Args:
+        collection_name (str): The name of the collection.
+        document_id (str): The id of the document.
+
+    Returns:
+        dict: The document.
+    """
+    collection = await get_collection(collection_name)
+    return await collection.find_one({"_id": document_id})
