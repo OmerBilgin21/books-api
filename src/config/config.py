@@ -22,13 +22,8 @@ def get_envs() -> dict[str, str]:
 		load_dotenv(dotenv_path=".env.local")
 	return {
 		"env": os.environ.get("ENV", "dev"),
-		"secret_key": os.environ["SECRET_KEY"],
-		"user_secret": os.environ["USER_SECRET"],
-		"pass_secret": os.environ["PASS_SECRET"],
-		"rapid_api_key": os.environ["BOOKS_API_KEY"],
-		"rapid_api_host": os.environ["BOOKS_API_HOST"],
-		"book_finder_key": os.environ["BOOK_FINDER_KEY"],
-		"book_finder_host": os.environ["BOOK_FINDER_HOST"],
+		"secret_key": os.environ.get("SECRET_KEY", "default-secret-key"),
+		"db_connection_str": os.environ.get("DB_CONNECTION_STR", "localhost"),
 	}
 
 

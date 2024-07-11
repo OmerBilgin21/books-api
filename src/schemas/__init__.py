@@ -1,5 +1,5 @@
 from .auth import Token, TokenData, User, UserCreate, UserInDB
-from .books import Book, BookOut, SearchQueryString
+from .books import Book, SearchQueryString
 from .user_lists import UserListCreate, UserLists
 
 __all__ = [
@@ -12,5 +12,4 @@ __all__ = [
 	"SearchQueryString",
 	"UserListCreate",
 	"Book",
-	"BookOut",
 ]

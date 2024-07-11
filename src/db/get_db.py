@@ -10,11 +10,5 @@ def get_db() -> AsyncIOMotorClient:
 		MongoClient: The database client.
 	"""
 	envs = get_envs()
-	username = envs["user_secret"]
-	password = envs["pass_secret"]
-	connection_url = "mongodb+srv://{username}:{password}@books-api-db.uictcty.mongodb.net/?retryWrites=true&w=majority".format(
-		username=username,
-		password=password,
-	)
-	client = AsyncIOMotorClient(connection_url)
+	client = AsyncIOMotorClient(host=envs["db_connection_str"], post=27017)
 	return client["books-db"]

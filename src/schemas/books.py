@@ -15,7 +15,7 @@ class SearchQueryString(BaseModel):
 	page: int = 1  # page of the result
 
 
-class Book(BaseModel):
+class Book(Out):
 	page_count: int | None
 	title: str | None
 	cover: str | None
@@ -23,7 +23,3 @@ class Book(BaseModel):
 	genres: list[str] | None
 	# TODO(@omer): add buy_url to this schema
 	plot: str | None
-
-
-class BookOut(Out, Book):
-	pass
