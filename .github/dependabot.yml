@@ -25,6 +25,9 @@ updates:
       target-branch: "master"
       assignees:
           - "OmerBilgin21"
+      ignore:
+          - dependency-name: "pymongo"
+          - dependency-name: "motor"
     - package-ecosystem: "github-actions"
       directory: "/"
       schedule:
