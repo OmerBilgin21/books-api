@@ -5,13 +5,13 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip" # See documentation for possible values
-    directory: "/requirements.txt" # Location of package manifests
-    schedule:
-      interval: "weekly"
-    target-branch: "master"
-    assignees:
-      - "OmerBilgin21"
-    ignore:
-      - dependency-name: "pymongo"
-      - dependency-name: "motor"
+    - package-ecosystem: "pip" # See documentation for possible values
+      directory: "/" # Location of package manifests
+      schedule:
+          interval: "weekly"
+      target-branch: "master"
+      assignees:
+          - "OmerBilgin21"
+      ignore:
+          - dependency-name: "pymongo"
+          - dependency-name: "motor"
