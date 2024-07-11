@@ -22,6 +22,9 @@ updates:
       directory: "/"
       schedule:
           interval: "daily"
+      target-branch: "master"
+      assignees:
+          - "OmerBilgin21"
     - package-ecosystem: "github-actions"
       directory: "/"
       schedule:
