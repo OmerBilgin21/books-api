@@ -4,22 +4,22 @@ from .out import Out
 
 
 class User(Out):
-    username: str
-    email: str
+	username: str
+	email: str
 
 
 class Token(BaseModel):
-    access_token: str
-    token_type: str
+	access_token: str
+	token_type: str
 
 
 class TokenData(BaseModel):
-    username: str = None
+	username: str = None
 
 
 class UserInDB(User):
-    hashed_password: str
+	hashed_password: str
 
 
 class UserCreate(User):
-    password: str
+	password: str

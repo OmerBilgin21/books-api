@@ -7,17 +7,17 @@ from .security import get_password_hash
 
 
 async def create_user(user: UserCreate) -> Any:
-    """_summary_
+	"""_summary_
 
-    Args:
-        user (UserCreate): _description_
+	Args:
+	    user (UserCreate): _description_
 
-    Returns:
-        _type_: _description_
-    """
-    new_user = {
-        "username": user.username,
-        "hashed_password": get_password_hash(user.password),
-        "email": user.email,
-    }
-    return await create_one("users", new_user)
+	Returns:
+	    _type_: _description_
+	"""
+	new_user = {
+		"username": user.username,
+		"hashed_password": get_password_hash(user.password),
+		"email": user.email,
+	}
+	return await create_one("users", new_user)
