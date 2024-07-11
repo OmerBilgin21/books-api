@@ -21,11 +21,11 @@ def verify_password(plain_password: str, hashed_password: str) -> Any:
 	Verify the plain password against the hashed password using the CryptContext.
 
 	Args:
-	    plain_password (str): The plain text password.
-	    hashed_password (str): The hashed password.
+		plain_password (str): The plain text password.
+		hashed_password (str): The hashed password.
 
 	Returns:
-	    Any: True if the passwords match, False otherwise.
+		Any: True if the passwords match, False otherwise.
 	"""
 	return pwd_context.verify(plain_password, hashed_password)
 
@@ -35,10 +35,10 @@ def get_password_hash(password: str) -> Any:
 	Hash the given password using the CryptContext.
 
 	Args:
-	    password (str): The password to be hashed.
+		password (str): The password to be hashed.
 
 	Returns:
-	    Any: The hashed password.
+		Any: The hashed password.
 	"""
 	return pwd_context.hash(password)
 
@@ -48,10 +48,10 @@ async def get_user(username: str) -> UserInDB:
 	Retrieve a user from the given database by username.
 
 	Args:
-	    username (str): The username of the user.
+		username (str): The username of the user.
 
 	Returns:
-	    Any: UserInDB object if found, raises HTTPException otherwise.
+		Any: UserInDB object if found, raises HTTPException otherwise.
 	"""
 	user_from_db = await get_user_from_db(username=username)
 	if user_from_db is None:
@@ -67,11 +67,11 @@ async def authenticate_user(username: str, password: str) -> Any:
 	Authenticate a user by verifying the provided username and password.
 
 	Args:
-	    username (str): The username of the user.
-	    password (str): The password of the user.
+		username (str): The username of the user.
+		password (str): The password of the user.
 
 	Returns:
-	    Any: UserInDB object if authentication is successful, False otherwise.
+		Any: UserInDB object if authentication is successful, False otherwise.
 	"""
 	user = await get_user(username=username)
 	if not user:
@@ -86,11 +86,11 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> A
 	Create an access token using the provided data and optional expiration delta.
 
 	Args:
-	    data (dict): The data to be encoded in the token.
-	    expires_delta (timedelta | None): Optional expiration delta.
+		data (dict): The data to be encoded in the token.
+		expires_delta (timedelta | None): Optional expiration delta.
 
 	Returns:
-	    Any: The generated access token.
+		Any: The generated access token.
 	"""
 	to_encode = data.copy()
 	if expires_delta:
@@ -106,10 +106,10 @@ async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:
 	Get the current user based on the provided access token.
 
 	Args:
-	    token (str): The access token.
+		token (str): The access token.
 
 	Returns:
-	    Any: The current user if authentication is successful.
+		Any: The current user if authentication is successful.
 	"""
 	credentials_exception = HTTPException(
 		status_code=status.HTTP_401_UNAUTHORIZED,

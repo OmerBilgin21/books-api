@@ -30,10 +30,10 @@ async def login_for_access_token(
 	Endpoint to obtain an access token by providing a valid username and password.
 
 	Args:
-	    form_data (OAuth2PasswordRequestForm): The form data containing username and password.
+		form_data (OAuth2PasswordRequestForm): The form data containing username and password.
 
 	Returns:
-	    Any: The access token and token type.
+		Any: The access token and token type.
 	"""  # noqa: E501
 	user = await authenticate_user(
 		username=form_data.username,
@@ -60,13 +60,13 @@ async def signup(
 	"""_summary_
 
 	Args:
-	    user (dict): _description_. Defaults to None.
+		user (dict): _description_. Defaults to None.
 
 	Raises:
-	    HTTPException: _description_
+		HTTPException: _description_
 
 	Returns:
-	    dict[str, str]: _description_
+		dict[str, str]: _description_
 	"""
 	if not user or user.username is None or user.password is None or user.email is None:
 		raise HTTPException(

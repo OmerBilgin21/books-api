@@ -12,9 +12,9 @@ async def read_users_me(current_user: UserInDB = Depends(get_current_user)) -> U
 	Endpoint to get information about the currently authenticated user.
 
 	Args:
-	    current_user (UserInDB): The current authenticated user.
+		current_user (UserInDB): The current authenticated user.
 
 	Returns:
-	    Any: UserInDB information.
+		Any: UserInDB information.
 	"""
 	return current_user

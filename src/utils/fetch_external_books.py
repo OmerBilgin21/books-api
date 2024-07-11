@@ -14,11 +14,11 @@ def fetch_external_books(
 	"""_summary_
 
 	Args:
-	    genres (list[str]): _description_
-	    extra_url (str, optional): _description_. Defaults to "get/random/".
+		genres (list[str]): _description_
+		extra_url (str, optional): _description_. Defaults to "get/random/".
 
 	Returns:
-	    Any: _description_
+		Any: _description_
 	"""
 	# there's no option to get random books from a genre
 	# because it's the default behaviour anyway

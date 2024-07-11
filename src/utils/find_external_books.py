@@ -12,10 +12,10 @@ def find_external_books(querystring: SearchQueryString) -> Any:
 	"""_summary_
 
 	Args:
-	    querystring (SearchQueryString): _description_
+		querystring (SearchQueryString): _description_
 
 	Returns:
-	    Any: found book/books if any. None otherwise.
+		Any: found book/books if any. None otherwise.
 	"""
 	envs = get_envs()
 	book_finder_key = envs["book_finder_key"]

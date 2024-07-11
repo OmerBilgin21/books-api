@@ -5,11 +5,11 @@ def change_books_structure(source: str, books: list[dict]) -> list[Book] | None:
 	"""Change the structure of the books from different sources to the preferred structure.
 
 	Args:
-	    source (str): _description_
-	    books (list[dict]): _description_
+		source (str): _description_
+		books (list[dict]): _description_
 
 	Returns:
-	    list[Book]: new list of books of preferred structure. Defaults to empty list.
+		list[Book]: new list of books of preferred structure. Defaults to empty list.
 	"""  # noqa: E501
 	if source == "from-finder":
 		return [

@@ -13,7 +13,7 @@ async def get_books() -> list[Book] | None:
 	Retrieves a list of books.
 
 	Returns
-	    dict: A dictionary containing the book data.
+		dict: A dictionary containing the book data.
 	"""
 	return fetch_external_books(extra_url="find/genres")
 
@@ -24,7 +24,7 @@ async def get_possible_categories() -> list[str]:
 	Retrieves a list of categories that users can search books from.
 
 	Returns
-	    dict: A dictionary containing the book data.
+		dict: A dictionary containing the book data.
 	"""
 	return POSSIBLE_SEARCH_CATEGORIES
 
@@ -36,10 +36,10 @@ async def search_books(
 	"""_summary_
 
 	Args:
-	    search_params (SearchQueryString): search criteria and parameters.
+		search_params (SearchQueryString): search criteria and parameters.
 
 	Returns:
-	    dict: Found book/books if any.
+		dict: Found book/books if any.
 	"""
 	return find_external_books(search_params)
 
@@ -50,6 +50,6 @@ async def get_random_books() -> list[Book] | None:
 	Retrieves a random book.
 
 	Returns
-	    dict: A dictionary containing the book data.
+		dict: A dictionary containing the book data.
 	"""
 	return fetch_external_books()

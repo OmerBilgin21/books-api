@@ -7,7 +7,7 @@ def get_db() -> AsyncIOMotorClient:
 	"""Get the database client.
 
 	Returns
-	    MongoClient: The database client.
+		MongoClient: The database client.
 	"""
 	envs = get_envs()
 	username = envs["user_secret"]

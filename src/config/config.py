@@ -15,13 +15,13 @@ def get_envs() -> dict[str, str]:
 	it loads the local environment variables from the ".env.local" file.
 
 	Returns
-	    dict: A dictionary containing the current environment.
-	        The "env" key holds the value of the "ENV" variable.
+		dict: A dictionary containing the current environment.
+			The "env" key holds the value of the "ENV" variable.
 	"""
-	if os.environ["ENV"] == "DEV":
+	if os.environ["ENV"] == "dev":
 		load_dotenv(dotenv_path=".env.local")
 	return {
-		"env": os.environ["ENV"],
+		"env": os.environ.get("ENV", "dev"),
 		"secret_key": os.environ["SECRET_KEY"],
 		"user_secret": os.environ["USER_SECRET"],
 		"pass_secret": os.environ["PASS_SECRET"],
@@ -33,32 +33,6 @@ def get_envs() -> dict[str, str]:
 
 
 ACCESS_TOKEN_EXPIRE_MINUTES = 1 * 60 * 24  # 1 day
-
+GOOGLE_API_BASE_URL = "https://www.googleapis.com/books/v1"
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-BOOKS_API_EXTERNAL_BASE = "https://books-api7.p.rapidapi.com/books/"
-BOOK_FINDER_EXTERNAL = "https://book-finder1.p.rapidapi.com/api/search"
-
-POSSIBLE_SEARCH_CATEGORIES = [
-	"Animals, Bugs & Pets",
-	"Art, Creativity & Music",
-	"General Literature",
-	"Hobbies, Sports & Outdoors",
-	"Science Fiction & Fantasy",
-	"Real Life",
-	"Science & Technology",
-	"Mystery & Suspense",
-	"Reference",
-]
-
-POSSIBLE_GENRES = [
-	"Classics",
-	"Historical",
-	"Literature",
-	"Historical fiction",
-	"Fiction",
-	"Fantasy",
-	"19th Century",
-	"Christmas",
-]

@@ -10,10 +10,10 @@ async def create_user(user: UserCreate) -> Any:
 	"""_summary_
 
 	Args:
-	    user (UserCreate): _description_
+		user (UserCreate): _description_
 
 	Returns:
-	    _type_: _description_
+		_type_: _description_
 	"""
 	new_user = {
 		"username": user.username,

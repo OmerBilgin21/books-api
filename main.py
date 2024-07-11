@@ -7,7 +7,7 @@ from src.config import get_envs
 
 if __name__ == "__main__":
 	env = get_envs()["env"]
-	if env == "DEV":
+	if env == "dev":
 		print("hot reloading")
 		uvicorn.run(
 			"main:app",
