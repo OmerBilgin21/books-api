@@ -6,6 +6,7 @@ from .out import Out
 class User(BaseModel):
 	username: str
 	email: str
+	allow_nsfw: bool = False
 
 
 class Token(BaseModel):

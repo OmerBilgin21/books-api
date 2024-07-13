@@ -26,6 +26,7 @@ def get_envs() -> dict[str, str]:
 		"secret_key": os.environ.get("SECRET_KEY", "default-secret-key"),
 		"db_connection_str": os.environ.get("DB_CONNECTION_STR", "localhost"),
 		"db_source": os.environ.get("DB_SOURCE", "LOCAL"),
+		"google_api_key": os.environ["GOOGLE_API_KEY"],
 	}
 
 
@@ -34,7 +35,18 @@ GOOGLE_API_BASE_URL = "https://www.googleapis.com/books/v1"
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+POSSIBLE_SEARCH_PARAMETERS = {
+	"title": "intitle",
+	"author": "inauthor",
+	"publisher": "inpublisher",
+	"subject": "subject",
+	"free": "",
+}
+
+WEIRD_GOOGLE_CHAR = "•"
+
 COLLECTION_NAMES = {
 	"book_lists": "bookLists",
 	"users": "users",
+	"books": "books",
 }

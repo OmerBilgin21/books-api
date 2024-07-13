@@ -1,25 +1,33 @@
-from pydantic import BaseModel
+from typing import Any
+
+from pydantic import BaseModel, HttpUrl
 
 from .out import Out
 
 
-class SearchQueryString(BaseModel):
-	title: str | None = None
-	author: str | None = None
-	series: str | None = None
-	book_type: str | None = None  # fiction, nonfiction
-	categories: list[str] | None = None  # semicolon separated list of categories
-	lexile_min: int = -650  # -650 to 2150
-	lexile_max: int = 2150  # -650 to 2150
-	results_per_page: int = 25  # 1 to 100
-	page: int = 1  # page of the result
+class Book(BaseModel):
+	etag: str | None = None
+	selfLink: HttpUrl | None = None
+	volumeInfo: Any | None = None
+	saleInfo: Any | None = None
+	accessInfo: Any | None = None
+	searchInfo: Any | None = None
+	googleId: str
 
 
-class Book(Out):
-	page_count: int | None
-	title: str | None
-	cover: str | None
-	author: str | None
-	genres: list[str] | None
-	# TODO(@omer): add buy_url to this schema
-	plot: str | None
+class BookInDb(BaseModel):
+	title: str
+	categories: list[str]
+	googleId: str
+	author: list[str]
+	publisher: str
+	subject: str
+	nsfw: bool
+
+
+class BookInDbOut(BookInDb, Out):
+	pass
+
+
+class BookOut(Book, Out):
+	pass

@@ -1,4 +1,5 @@
 from .book_lists import create_book_list, prepare_book_list_create
+from .fetch_books import fetch_book_volumes
 from .login import create_user
 from .security import (
 	authenticate_user,
@@ -12,8 +13,9 @@ from .security import (
 __all__ = [
 	"authenticate_user",
 	"create_access_token",
-	"create_user",
 	"create_book_list",
+	"create_user",
+	"fetch_book_volumes",
 	"fetch_external_books",
 	"find_external_books",
 	"get_current_user",

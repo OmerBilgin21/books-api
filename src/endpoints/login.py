@@ -73,9 +73,7 @@ async def signup(
 			status_code=status.HTTP_401_UNAUTHORIZED,
 			detail="Incorrect username or password",
 		)
-	print("oi")
 	res = await create_user(user=user)
-	print(f"=== res === {res}")
 	if res is None:
 		return {"message": "User creation failed"}
 

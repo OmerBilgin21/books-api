@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 
+from src.db.crud import find_users_book_lists
 from src.schemas import BookListCreate, BookListOut, UserInDB
 from src.utils import create_book_list, get_current_user
 
@@ -15,7 +16,7 @@ async def new_book_list(
 
 	Args:
 		book_list (BookListCreate): Incoming data for book list to create
-		current_user (UserInDB): Current user
+		current_user (UserInDB): Authenticated user
 
 	Returns:
 		BookListOut: Created book lists
@@ -32,8 +33,13 @@ async def new_book_list(
 	return created_book_list
 
 
-@router.get("")
-async def get_book_lists(
+@router.get("", response_model=list[BookListOut])
+async def get_my_book_lists(
 	current_user: UserInDB = Depends(get_current_user),
-) -> list[dict]:
-	return [{}]
+) -> list[BookListOut]:
+	"""Get book lists of a user
+
+	Returns:
+		list[BookListOut]: List of book lists of current user
+	"""
+	return await find_users_book_lists(user_id=current_user.id)

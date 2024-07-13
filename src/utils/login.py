@@ -21,4 +21,4 @@ async def create_user(user: UserCreate) -> Any:
 		"hashed_password": get_password_hash(user.password),
 		"email": user.email,
 	}
-	return await create_one(COLLECTION_NAMES.users, new_user)
+	return await create_one(COLLECTION_NAMES["users"], new_user)
