@@ -4,13 +4,13 @@ from typing import Any
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
 
-from src.config import (
+from src.config.config import (
 	get_envs,
 	oauth2_scheme,
 	pwd_context,
 )
-from src.db import get_user as get_user_from_db
-from src.schemas import TokenData, UserInDB
+from src.db.crud import get_user as get_user_from_db
+from src.schemas import TokenData, UserInDB, UserOut
 
 SECRET_KEY = get_envs()["secret_key"]
 ALGORITHM = "HS256"
@@ -101,7 +101,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> A
 	return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
-async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:
+async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserOut:
 	"""
 	Get the current user based on the provided access token.
 
@@ -127,4 +127,4 @@ async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:
 	user = await get_user(username=token_data.username)
 	if user is None:
 		raise credentials_exception
-	return user
+	return UserOut(**user)

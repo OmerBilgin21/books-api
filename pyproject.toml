@@ -1,5 +1,5 @@
 [tool.ruff]
-exclude = [".git", ".ruff_cache", ".venv", "venv"]
+exclude = [".git", ".ruff_cache", ".venv", "venv", "~/"]
 target-version = "py310"
 
 line-length = 88

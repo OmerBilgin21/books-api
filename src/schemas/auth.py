@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from .out import Out
 
 
-class User(Out):
+class User(BaseModel):
 	username: str
 	email: str
 
@@ -19,6 +19,10 @@ class TokenData(BaseModel):
 
 class UserInDB(User):
 	hashed_password: str
+
+
+class UserOut(User, Out):
+	pass
 
 
 class UserCreate(User):

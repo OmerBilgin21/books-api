@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from src.config import get_envs
+from src.config.config import get_envs
 
 
 def get_db() -> AsyncIOMotorClient:
@@ -10,5 +10,8 @@ def get_db() -> AsyncIOMotorClient:
 		MongoClient: The database client.
 	"""
 	envs = get_envs()
-	client = AsyncIOMotorClient(host=envs["db_connection_str"], post=27017)
+	if envs["db_source"] == "LOCAL":
+		client = AsyncIOMotorClient(host=envs["db_connection_str"], port=27017)
+	else:
+		client = AsyncIOMotorClient(host=envs["db_connection_str"])
 	return client["books-db"]

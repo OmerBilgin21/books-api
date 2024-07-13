@@ -1,5 +1,7 @@
+from bson import ObjectId
 from motor.motor_asyncio import AsyncIOMotorCollection
 
+from src.config.config import COLLECTION_NAMES
 from src.schemas import UserInDB
 
 from .get_db import get_db
@@ -41,7 +43,7 @@ async def get_user(username: str) -> UserInDB:
 	Returns:
 		dict: The document.
 	"""
-	collection = await get_collection("users")
+	collection = await get_collection(COLLECTION_NAMES["users"])
 	return await collection.find_one({"username": username})
 
 
@@ -70,4 +72,17 @@ async def get_one(collection_name: str, document_id: str) -> dict:
 		dict: The document.
 	"""
 	collection = await get_collection(collection_name)
-	return await collection.find_one({"_id": document_id})
+	return await collection.find_one({"_id": ObjectId(document_id)})
+
+
+async def find_book_lists_with_same_name(book_list_name: str) -> list[dict]:
+	"""Get the book lists with the search parameter name
+
+	Args:
+		book_list_name (str): search parameter
+
+	Returns:
+		dict: Book list(s) if any
+	"""
+	book_listc = await get_collection(COLLECTION_NAMES["book_lists"])
+	return await book_listc.find({"name": book_list_name}).to_list(length=None)
